@@ -1,0 +1,27 @@
+#!/bin/bash
+
+
+function print_help() {
+	echo "Please pass either 'on' or 'off' argument."
+}
+
+
+if [ $# != 1 ]; then
+	print_help
+	exit 1
+fi
+
+
+if [ $1 = "on" ]; then
+	echo 2 | sudo tee /proc/sys/kernel/randomize_va_space
+	echo "Turned on ASLR."
+else
+	if [ $1 = "off" ]; then
+		echo 0 | sudo tee /proc/sys/kernel/randomize_va_space
+		echo "Turned off ASLR."
+	else
+		print_help
+	fi
+fi
+
+
