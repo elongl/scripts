@@ -1,2 +1,2 @@
 #!/bin/bash
-source ~/Workspace/ctf/bin/activate
+source ~/workspace/ctf/bin/activate
