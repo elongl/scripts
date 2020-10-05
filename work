@@ -6,8 +6,9 @@ PLAYGROUND_DIR=~/workspace/playground
 
 
 code .
-tmux new-session -d -s $SESSION_NAME -n notes
+tmux new-session -d -s $SESSION_NAME -n general -c $HOME
 tmux new-window -d -n dbg
+tmux new-window -d -t 4 -n notes
 tmux new-window -d -t 5 -n play -c $PLAYGROUND_DIR
 tmux split-window -h -c $PLAYGROUND_DIR -t 5 ipython
 tmux attach -t $SESSION_NAME
